@@ -1,0 +1,65 @@
+.mainDiv {
+    margin: auto;
+    width: 400px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #4D555B;/*#3C464D;*/
+    border-top: 3px solid #434a52;
+    border-bottom: 3px solid #434a52;
+}
+.mainDivContainer {
+    margin: auto;
+    text-align: center;
+}
+.greenLetters {
+    color: green;
+}
+
+.welcomeText {
+    color: whitesmoke;
+    align: center;
+    font-size: 42px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 58px;
+    margin: 0 0 58px;
+}
+
+.signInBtn {
+    float: left;
+    padding: 5px;
+    background: #B95763;
+    border: 0;
+    width: 45%;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.signInBtn:hover {
+    background: #ffc42d;
+}
+
+.signInUpBtns {
+     height: 50px;
+}
+
+.signUpBtn {
+    float: right;
+    background: #6F363D;
+    border: 0;
+    width: 45%;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.signUpBtn:hover {
+    background: #16aa56;
+}
