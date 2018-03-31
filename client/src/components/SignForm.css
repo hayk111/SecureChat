@@ -51,7 +51,7 @@ after { clear: both; }
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     color: #a9a9a9;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
     padding: 0 16px;
     width: 265px;
     height: 50px;
@@ -61,7 +61,7 @@ after { clear: both; }
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     color: #a9a9a9;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
     padding: 0 16px;
     width: 265px;
     height: 50px;
@@ -109,7 +109,7 @@ after { clear: both; }
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     color: #a9a9a9;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
     padding: 0 16px;
     width: 265px;
     height: 50px;
@@ -119,7 +119,7 @@ after { clear: both; }
     background-color: #3b4148;
     border-radius: 0px 3px 3px 0px;
     color: #a9a9a9;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
     padding: 0 16px;
     width: 265px;
     height: 50px;
@@ -150,7 +150,7 @@ after { clear: both; }
 
 .signUpBtn {
     float: right;
-    background: #B95763;
+    background: #519d48;
     border: 0;
     width: 45%;
     height: 40px;
@@ -166,4 +166,20 @@ after { clear: both; }
 
 #sign-up form input[type="submit"]:hover {
     background: #16aa56;
+}
+
+.requiredErr { color: #B95763 }
+.requiredWarn { color: orange }
+
+.requiredField {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.submitSignIn {
+    margin-top: 10px;
+}
+
+.submitSignUp {
+    margin-top: 10px;
 }

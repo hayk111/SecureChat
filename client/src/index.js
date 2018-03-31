@@ -5,13 +5,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import logger from 'redux-logger';
 
+
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
 
 const store = createStore(
     reducers,
-    applyMiddleware(logger));
+    /*applyMiddleware(logger)*/);
 
 ReactDOM.render(
     <Provider store={store}>
