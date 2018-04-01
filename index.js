@@ -26,11 +26,13 @@ app.get('/*', function(req, res){
     res.sendFile(__dirname + '/client/build/index.html');
 });
 
+//Routes
+const authRoute = require('./app/routes/auth')(app, passport);
+
 //Models
 const models = require('./app/models');
 
-//Routes
-const authRoute = require('./app/routes/auth')(app, passport);
+
 
 require('./app/config/passport/passport.js')(passport, models.user);
 

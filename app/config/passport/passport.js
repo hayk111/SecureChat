@@ -29,7 +29,6 @@ module.exports = function(passport, user) {
 		}).then(function(user) {
 
 		    if (user) {
-		    	console.log('in if......');
 		        return done(null, false, {message: 'That username, email is already taken'});
 		    } else {
 		        const userPassword = generateHash(password);
@@ -58,20 +57,19 @@ module.exports = function(passport, user) {
 			});
 		}
 	));
-
 	//LOCAL SIGNIN
 	passport.use('local-signin', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
- 
     }, function(req, email, password, done) {
+		console.log('signing in', email, password);
         const User = user;
 
         const isValidPassword = function(userpass, password) {
             return bCrypt.compareSync(password, userpass);
-        }
+        };
  
         User.findOne({
             where: {
@@ -103,8 +101,8 @@ module.exports = function(passport, user) {
             });
  
         });
- 
- 
+
+
     }
  
 	));

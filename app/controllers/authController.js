@@ -14,6 +14,6 @@ module.exports.dashboard = function(req, res) {
 
 module.exports.logout = function(req, res) {
     req.session.destroy(function(err) {
-        res.redirect('/');
+        res.send(JSON.stringify({loggedOut: true}));
     });
 }
