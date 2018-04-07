@@ -2,7 +2,7 @@ import React from 'react';
 import './SignForm.css';
 
 import SignUp from "./SignUp";
-import SignIn from "./SignIn";
+import { SignIn } from "../containers/SignIn";
 
 import { Switch, Route, Redirect} from 'react-router';
 import {withRouter} from "react-router-dom";

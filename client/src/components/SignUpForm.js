@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {required, maxLength15, minValue1, number, aol, minValue4, email, tooOld} from '../constants/SignValidation';
+import {required, maxLength15, maxLength50, minValue1, number, aol, minValue4, email, tooOld} from '../constants/SignValidation';
 
 const renderField = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => (
     <div>
@@ -33,7 +33,7 @@ const SignUpForm = props => {
                     <Field
                         name="email"
                         component={renderField}
-                        validate={[ required, email, aol ]}
+                        validate={[ required, email, aol, maxLength50]}
                         type="text"
                         label="Email"
                         placeholder="Enter your email address"

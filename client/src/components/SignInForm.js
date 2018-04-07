@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {required, maxLength15} from '../constants/SignValidation';
+import {required, maxLength50} from '../constants/SignValidation';
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div>
@@ -20,7 +20,7 @@ const SignInForm = props => {
                     <Field
                         name="username"
                         component={renderField}
-                        validate={[ required, maxLength15 ]}
+                        validate={[ required, maxLength50 ]}
                         type="text"
                         label="Username"
                     />
@@ -32,7 +32,7 @@ const SignInForm = props => {
                     <Field
                         name="password"
                         component={renderField}
-                        validate={[ required, maxLength15 ]}
+                        validate={[ required, maxLength50 ]}
                         type="password"
                         label="Password"
                     />
