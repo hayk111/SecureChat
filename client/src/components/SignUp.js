@@ -11,10 +11,12 @@ const signUpReqest = function(values) {
         .then(response => {
             console.log('ok response comes:', response);
             if(response.data.hasOwnProperty('message')) {
-                console.warn(response.data.message)
+                switch(response.data.message) {
+                    case 'Username taken':
+                        document.getElementsByClassName('signUpFailed')[0].innerHTML = 'Username or email already taken';
+                        break;
+                }
             } else {
-                console.log('User added');
-
                 window.location.href = '/home';
             }
         })

@@ -183,3 +183,13 @@ after { clear: both; }
 .submitSignUp {
     margin-top: 10px;
 }
+
+.signInFailed {
+    color: #B95763;
+    font-size: 14px;
+}
+
+.signUpFailed {
+    color: #B95763;
+    font-size: 14px;
+}

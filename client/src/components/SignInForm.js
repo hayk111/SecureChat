@@ -38,6 +38,7 @@ const SignInForm = props => {
                     />
                 </div>
             </div>
+            <div className='signInFailed'></div>
             <input type="submit" value="Login" className='submitSignIn'/>
         </form>
     )

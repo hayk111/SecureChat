@@ -4,7 +4,8 @@ import axios from "axios/index";
 const logOutReqest = function() {
     axios.post('http://localhost:5000/logout', {})
         .then(response => {
-            if(response.loggedOut) {
+            console.log('log out response:', response.data);
+            if(response.data.loggedOut) {
                 window.location.reload();
             } else {
                 console.log('Some error...');

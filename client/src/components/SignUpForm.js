@@ -92,6 +92,7 @@ const SignUpForm = props => {
                     />
                 </div>
             </div>
+            <div className='signUpFailed'></div>
             <input type="submit" value="Sign me up!" className='submitSignUp'/>
         </form>
     )

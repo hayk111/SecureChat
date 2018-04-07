@@ -19,31 +19,30 @@ class App extends Component {
         });
         console.log('isLoggedIn in App1', this.isLogged);
     }
-  render() {
-      return this.resolved ? (
-          <div className="App">
-              <div className="container-fluid">
-                  <Switch>
-                      <Route exact path='/home' render={() => (
-                          this.isLogged ? (
-                              <Home/>
-                          ): (
-                              <Sign/>
-                          )
-                      )
-                      }/>
-                      <Route path='/' component={Sign}/>
-                  </Switch>
-              </div>
-          </div>
-      ) : (
-          <div className="App">
-              <div align="center">
-                  <h3 className='renderingH3'>Rendering...</h3>
-              </div>
-          </div>
-      );
-  }
+
+    renderComponent(isLoggedIn) {
+        console.log('this is loggedIn:', isLoggedIn);
+        return isLoggedIn ? (<Home/>) : (<Sign/>);
+    }
+
+    render() {
+        return this.resolved ? (
+            <div className="App">
+                <div className="container-fluid">
+                    <Switch>
+                        <Route exact path='/home' render={() => this.renderComponent(this.isLogged)}/>
+                        <Route path='/' render={() => this.renderComponent(this.isLogged)}/>
+                    </Switch>
+                </div>
+            </div>
+        ) : (
+            <div className="App">
+                <div align="center">
+                    <h3 className='renderingH3'>Rendering...</h3>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

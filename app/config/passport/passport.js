@@ -1,5 +1,6 @@
 const bCrypt = require('bcrypt-nodejs');
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = function(passport, user) {
 	const User = user;
@@ -29,7 +30,7 @@ module.exports = function(passport, user) {
 		}).then(function(user) {
 
 		    if (user) {
-		        return done(null, false, {message: 'That username, email is already taken'});
+		        return done(null, false, {message: 'Username taken'});
 		    } else {
 		        const userPassword = generateHash(password);
 		 
@@ -60,11 +61,14 @@ module.exports = function(passport, user) {
 	//LOCAL SIGNIN
 	passport.use('local-signin', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true // allows us to pass back the entire request to the callback
-    }, function(req, email, password, done) {
-		console.log('signing in', email, password);
+       usernameField: 'username',
+       passwordField: 'password',
+	   passReqToCallback: true // allows us to pass back the entire request to the callback
+    }, function(req, uname, pass, done) {
+		//console.log('signing in', uname, pass, done);
+		const username = req.body.username;
+        const password = req.body.password;
+
         const User = user;
 
         const isValidPassword = function(userpass, password) {
@@ -73,39 +77,35 @@ module.exports = function(passport, user) {
  
         User.findOne({
             where: {
-                email: email
+                [Op.or]: [{email: username}, {username}]
             }
         }).then(function(user) {
+        	console.log('found the user:', user);
  
             if (!user) {
+            	console.log('here1');
                 return done(null, false, {
-                    message: 'Email does not exist'
+                    message: 'Username does not exist'
                 });
             }
  
             if (!isValidPassword(user.password, password)) {
+                console.log('here2');
                 return done(null, false, {
-                    message: 'Incorrect password.'
+                    message: 'Incorrect password'
                 });
             }
- 
- 
+
             var userinfo = user.get();
+            
             return done(null, userinfo);
         }).catch(function(err) {
- 
             console.log("Error:", err);
- 
             return done(null, false, {
                 message: 'Something went wrong with your Signin'
             });
- 
         });
-
-
-    }
- 
-	));
+	}));
 
 	passport.serializeUser(function(user, done) {
 		done(null, user.id);
