@@ -4,7 +4,7 @@ import SignUpForm from './SignUpForm';
 import axios from "axios/index";
 import {withRouter} from "react-router-dom";
 
-const signUpReqest = function(values) {
+/*const signUpReqest = function(values) {
     console.log(values);
 
     axios.post('http://localhost:5000/signup', {...values})
@@ -23,12 +23,12 @@ const signUpReqest = function(values) {
         .catch(err => {
             console.error(err);
         });
-};
+};*/
 
-const SignUp = () => (
+const SignUp = (props) => (
     <div id='sign-up' align="center">
         <div id='login' align="center">
-            <SignUpForm onSubmit={signUpReqest}/>
+            <SignUpForm onSubmit={props.signUp}/>
         </div>
     </div>
 );

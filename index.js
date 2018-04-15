@@ -32,6 +32,8 @@ const authRoute = require('./app/routes/auth')(app, passport);
 //Models
 const models = require('./app/models');
 
+models.user.belongsTo(models.profile_info, {foreignKey: 'id', targetKey: 'user_id'});
+
 require('./app/config/passport/passport.js')(passport, models.user);
 
 models.sequelize.sync().then(function() {

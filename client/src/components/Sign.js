@@ -1,8 +1,10 @@
 import React from 'react';
 import './SignForm.css';
 
-import SignUp from "./SignUp";
 import { SignIn } from "../containers/SignIn";
+import { SignUp } from "../containers/SignUp";
+
+import SignUpLastStep from "./SignUpLastStep";
 
 import { Switch, Route, Redirect} from 'react-router';
 import {withRouter} from "react-router-dom";
@@ -41,6 +43,7 @@ const Sign = () => (
                 <Switch>
                     <Route path='/signIn' component={SignIn}/>
                     <Route path='/signUp' component={SignUp}/>
+
                     <Redirect from="/" to="/signIn"/>
                 </Switch>
             </div>

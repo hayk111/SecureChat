@@ -25,6 +25,11 @@ module.exports = function(app, passport) {
         })(req, res, next);
     });
 
+    app.post('/signupCompleted', (req, res) => {
+       console.log('signupCompleted::::', req.body);
+       authController.signupCompleted(req, res);
+    });
+
     app.post('/signin', (req, res, next) => {
         passport.authenticate('local-signin', (err, user, errMsg) => {
             console.log('errMsg:', errMsg);
@@ -34,6 +39,7 @@ module.exports = function(app, passport) {
             } else {
                 req.logIn(user, function(err) {
                     if (err) { return next(err); }
+                    console.log('heres the user:', JSON.stringify(user));
                     return res.send(JSON.stringify(user));
                 });
             }

@@ -4,8 +4,9 @@ import { isAuth } from './helpers';
 import './App.css';
 
 import Sign from './components/Sign';
-import Home from './components/Home';
+import { Home } from './containers/Home';
 import SignIn from "./components/SignIn";
+import { SignUpLastStep } from "./containers/SignUpLastStep";
 
 class App extends Component {
     componentDidMount() {
@@ -31,6 +32,8 @@ class App extends Component {
                 <div className="container-fluid">
                     <Switch>
                         <Route exact path='/home' render={() => this.renderComponent(this.isLogged)}/>
+                        <Route exact path='/signUpLastStep' component={SignUpLastStep}/>
+
                         <Route path='/' render={() => this.renderComponent(this.isLogged)}/>
                     </Switch>
                 </div>

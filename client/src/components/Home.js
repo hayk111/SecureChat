@@ -1,28 +1,26 @@
 import React from 'react';
-import axios from "axios/index";
+import { Switch, Route, Redirect } from 'react-router';
+import './Home.css';
+import Sidebar from './Sidebar';
+import Main from './Main';
 
-const logOutReqest = function() {
-    axios.post('http://localhost:5000/logout', {})
-        .then(response => {
-            console.log('log out response:', response.data);
-            if(response.data.loggedOut) {
-                window.location.reload();
-            } else {
-                console.log('Some error...');
-            }
-            console.log('Loging out...');
-        })
-        .catch(err => {
-            console.error(err);
-        });
+const Home = (props) => {
+    if(!localStorage.getItem('currentUser')) {
+        props.signOut();
+        window.location.reload();
+    } else {
+        var currUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
+    return (
+        <div id='home' className='row clearfix'>
+            <div className='col-sm-3 nopadding'>
+                <Sidebar signOut={props.signOut}/>
+            </div>
+            <div className='col-sm-9 nopadding'>
+                <Main />
+            </div>
+        </div>
+    )
 };
-
-const Home = () => (
-    <div id='home' align="center">
-        <h1 className='welcomeHome'>Welcome to Home!</h1>
-        <br />
-        <button className='btn btn-danger' onClick={logOutReqest}>Log out</button>
-    </div>
-);
 
 export default Home;

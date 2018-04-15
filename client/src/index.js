@@ -11,8 +11,8 @@ import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
 
 const store = createStore(
-    reducers,
-    /*applyMiddleware(logger)*/);
+    reducers
+);
 
 ReactDOM.render(
     <Provider store={store}>
@@ -21,4 +21,5 @@ ReactDOM.render(
         </BrowserRouter>
     </Provider>, document.getElementById('root'));
 
+export default store;
 registerServiceWorker();
