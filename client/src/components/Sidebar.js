@@ -7,11 +7,14 @@ const Sidebar = (props) => (
 
             </div>
             <div className="avatar">
-                <img alt="" src="me.jpg"/>
+                <img alt="" src={`http://localhost:5000/images/${props.currUser.profile_pic}`}/>
             </div>
             <div className="info">
                 <div className="title">
-                    <h3 className='curr_user_name'>Hayk Atoyan</h3>
+                    <h4 className='curr_user_name'>{props.currUser.first_name} {props.currUser.last_name}</h4>
+                </div>
+                <div className='profile_settings'>
+                    <a className='curr_user_settings'>Profile settings</a>
                 </div>
             </div>
         </div>

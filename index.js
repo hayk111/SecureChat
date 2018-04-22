@@ -8,8 +8,8 @@ const express = require('express'),
     cors = require('cors'),
     exphbs = require('express-handlebars');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(cors());
 
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret

@@ -15,8 +15,8 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.STRING
         },
         profile_pic: {
-            type: Sequelize.STRING,
-            defaultValue: 'http://localhost:5000/images/default-avatar-boy.png'
+            type: Sequelize.STRING(1000),
+            defaultValue: 'default-avatar-boy.png'
         }
     });
 

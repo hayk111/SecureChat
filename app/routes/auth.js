@@ -25,7 +25,7 @@ module.exports = function(app, passport) {
         })(req, res, next);
     });
 
-    app.post('/signupCompleted', (req, res) => {
+    app.post('/signupCompleted', (req, res, next) => {
        console.log('signupCompleted::::', req.body);
        authController.signupCompleted(req, res);
     });
@@ -44,6 +44,10 @@ module.exports = function(app, passport) {
                 });
             }
         })(req, res, next);
+    });
+
+    app.post('/currentUser', (req, res) => {
+        authController.currentUser(req, res);
     });
 
     app.post('/isAuth', (req, res) => {

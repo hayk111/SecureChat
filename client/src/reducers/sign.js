@@ -64,8 +64,11 @@ const sign = (state = [], action) => {
                 currUser.last_name = action.user.last_name;
 
                 axios.post('http://localhost:5000/signupCompleted', {...currUser})
-                    .then(response => {
-                        
+                    .then(resp => {
+                        console.log('signUp completedddddd4444:', resp.data.response);
+                        if(resp.data.response === 'ok') {
+                            window.location.href = '/home';
+                        }
                     })
                     .catch(err => {
                         console.error(err);
@@ -91,6 +94,9 @@ const sign = (state = [], action) => {
                     console.error(err);
                 });
             return state;
+        case types.GET_CURRENT_USER: 
+            console.log('curr dataaaaaaa', action);
+            return {...state, currUser: action.payload.user};
         default:
             return state;
     }

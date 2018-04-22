@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import logger from 'redux-logger';
-
+import thunk from 'redux-thunk';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
 
 const store = createStore(
-    reducers
+    reducers,
+    applyMiddleware(thunk)
 );
 
 ReactDOM.render(
@@ -22,4 +23,5 @@ ReactDOM.render(
     </Provider>, document.getElementById('root'));
 
 export default store;
-registerServiceWorker();
+
+//registerServiceWorker();
